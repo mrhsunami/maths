@@ -8,52 +8,42 @@
 
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
+#import "InputHandler.h"
+#import "ScoreKeeper.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         BOOL gameOn = YES;
-        while(true) {
+        ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc]init];
+        while(gameOn) {
             
             AdditionQuestion *currentQuestion = [[AdditionQuestion alloc]init];
             NSLog(@"%@", currentQuestion.question);
             
 
-            
-            // get user answer
-            char userInput[255];
-            NSLog(@"Please enter your answer");
-            fgets(userInput, 255, stdin);
-//
-//            // clean up answer
-            NSCharacterSet *inputCharacterSet = [NSCharacterSet whitespaceCharacterSet];
-            NSString *userInputConverted = [NSString stringWithCString:userInput encoding:NSUTF8StringEncoding];
-            NSString *userInputTrimmed = [userInputConverted stringByTrimmingCharactersInSet:inputCharacterSet];
-            // convert user input from NSString to NSInteger
-            
+            InputHandler *currentInputHandler = [[InputHandler alloc]init];
+            NSString *parsedUserAnswer = [currentInputHandler queryUser];
+        
             
             //check if user input "quit"
-            if ([userInputTrimmed isEqualToString: @"quit"]) {
+            if ([parsedUserAnswer isEqualToString: @"quit"]) {
                 gameOn = NO;
+                NSLog(@"You typed quit");
+                continue;
             }
-            
-            if (!gameOn) {
-                break;
-            }
-        
-            // check user answer against correct answer
-            NSInteger userAnswer = userInputTrimmed.intValue;
-            
-            if (currentQuestion.answer == userAnswer) {
+
+            if (currentQuestion.answer == parsedUserAnswer.intValue) {
                 NSLog(@"You sexy genius!");
+                [scoreKeeper updateScore:YES];
+                NSLog(@"Current score: Corrects: %i Mistakes: %i", scoreKeeper.corrects, scoreKeeper.mistakes);
+                
             } else {
                 NSLog(@"Try again");
+                [scoreKeeper updateScore:NO];
+                NSLog(@"Current score: Corrects: %i Mistakes: %i", scoreKeeper.corrects, scoreKeeper.mistakes);
             }
-            
-        
-            
-           
-            
+          
         }
         
     }
