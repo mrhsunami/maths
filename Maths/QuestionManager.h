@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "ScoreKeeper.h"
 
 @interface QuestionManager : NSObject
@@ -16,7 +16,7 @@
 
 - (NSString *) timeStats;
 //this should give something like this: "Total time: 60s, average time: 10s"
-- (void) printStatsUsingScoresFrom: (ScoreKeeper *)scoreKeeper andThisRoundTimeFrom:(AdditionQuestion *)currentRoundQuestion;
+- (void) printStatsUsingScoresFrom: (ScoreKeeper *)scoreKeeper andThisRoundTimeFrom:(Question *)currentRoundQuestion;
 
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
 #import "QuestionManager.h"
+#import "QuestionFactory.h"
 
 
 int main(int argc, const char * argv[]) {
@@ -18,20 +19,22 @@ int main(int argc, const char * argv[]) {
         
         BOOL gameOn = YES;
         ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc]init];
+        InputHandler *currentInputHandler = [[InputHandler alloc]init];
         QuestionManager *questionManager = [[QuestionManager alloc]init];
+        QuestionFactory *questionFactory = [[QuestionFactory alloc]init];
         
         while(gameOn) {
             
-            // create a new question
-            AdditionQuestion *currentRoundQuestion = [[AdditionQuestion alloc]init];
+            // create a new question object
+            Question *currentRoundQuestion = [questionFactory generateRandomQuestion];
             
             
-            // send a message to the questionManager's mutable array to add the question to itself
+            // add this new question to an array: send a message to the questionManager's mutable array to add the question to itself
             [questionManager.currentSessionQuestionsArray addObject:currentRoundQuestion];
             
             
-            // create a session input handler
-            InputHandler *currentInputHandler = [[InputHandler alloc]init];
+            // generate the actual phrase of the question
+            [currentRoundQuestion generateQuestion];
             
             
             // ask user the question by telling the instance of AdditionQuestion to do it.

@@ -6,18 +6,23 @@
 //  Copyright © 2018 Nathan Hsu. All rights reserved.
 //
 
-#import "AdditionQuestion.h"
+#import "Question.h"
 
-@implementation AdditionQuestion
+@implementation Question
 
 // here is the class's init override.
 - (instancetype)init {
     if (self = [super init]) {
 
         // Generate two random numbers
-        int mathValueOne = arc4random_uniform(90)+10;
-        int mathValueTwo = arc4random_uniform(90)+10;
-        _question = [NSString stringWithFormat:@"What is %i + %i?", mathValueOne, mathValueTwo];
+        int leftValue = arc4random_uniform(90)+10;
+        int rightValue = arc4random_uniform(90)+10;
+        
+        // Set these two random numbers to the left and right value
+        self.leftValue = leftValue;
+        self.rightValue = rightValue;
+        
+      
     
         // Set the startTime property of self declared in .h - type is NSDate. Use [NSDate date] convenience init for current date. I think this returns it in number of seconds...i think.
         self.startTime = [NSDate date];
@@ -27,7 +32,7 @@
         
         
         // Set the correct anser
-        self.answer = mathValueOne + mathValueTwo;
+//        self.answer = leftValue + rightValue;
         
     }
     return self;
@@ -39,7 +44,7 @@
     return _answer;
 }
 
--(NSTimeInterval) answerTime {
+-(NSTimeInterval) timeToAnswer {
     // calculate difference between startTime and endTime using NSDate method timeIntervalSinceDate:
 //    NSTimeInterval *timeInterval = [[self.startTime] timeIntervalSinceDate:[self.endTime];
 //    NSDate *startTime = self.startTime;
@@ -52,5 +57,8 @@
     NSLog(@"%@", self.question);
 }
 
+- (void) generateQuestion {
+    
+}
 
 @end

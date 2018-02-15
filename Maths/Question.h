@@ -8,11 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AdditionQuestion : NSObject
+@interface Question : NSObject
 
 // responsible for generating question.
 // responsible for handling answer to question
 // Part 2. also responsible for handling time tracking
+
+// right and left value. this is to accomodate this being a superclass of different types of math questions
+@property int rightValue;
+@property int leftValue;
+// these will be set in the init override. Set to random values, subclasses will be able to access these
+
+
 
 @property NSString *question;
 @property (nonatomic) NSInteger answer;
@@ -25,9 +32,29 @@
 
 
 // a method to find out diff between start time and end time.
--(NSTimeInterval) answerTime;
+-(NSTimeInterval) timeToAnswer;
 
 -(void) askUserTheQuestion;
+
+//we also need method to set the question and answer properties
+-(void) generateQuestion;
+//question class version of this will do nothing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end

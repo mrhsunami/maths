@@ -24,8 +24,8 @@
     // to get average time, total time, divid it by the number of instances of AdditionQuestion in curreent session Array
     
     double totalTime = 0;
-    for ( AdditionQuestion *question in self.currentSessionQuestionsArray) {
-        totalTime += [question answerTime];
+    for ( Question *question in self.currentSessionQuestionsArray) {
+        totalTime += [question timeToAnswer];
     }
     double amountOfQuestionsSoFar = (double)self.currentSessionQuestionsArray.count;
     
@@ -36,11 +36,11 @@
     return timeOutput;
 }
 
-- (void) printStatsUsingScoresFrom: (ScoreKeeper *)scoreKeeper andThisRoundTimeFrom:(AdditionQuestion *)currentRoundQuestion {
+- (void) printStatsUsingScoresFrom: (ScoreKeeper *)scoreKeeper andThisRoundTimeFrom:(Question *)currentRoundQuestion {
     NSLog(@"Current score: Corrects: %i Mistakes: %i", scoreKeeper.corrects, scoreKeeper.mistakes);
     
     //                double answerTime = [currentRoundQuestion answerTime];
-    NSLog(@"You took %.1f seconds.", [currentRoundQuestion answerTime]);
+    NSLog(@"You took %.1f seconds.", [currentRoundQuestion timeToAnswer]);
     
     //                NSString *otherTimeStats = [questionManager timeStats];
     NSLog(@"%@", [self timeStats]);
