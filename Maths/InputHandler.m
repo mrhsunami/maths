@@ -10,7 +10,7 @@
 
 @implementation InputHandler
 
--(NSString *) queryUser {
+-(NSString *) askUserForAnswer {
     //     get user answer
     char userInput[255];
     NSLog(@"Please enter your answer");
@@ -20,11 +20,11 @@
     // clean up answer
     NSCharacterSet *inputCharacterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     // turns it into string
-    NSString *userInputConverted = [NSString stringWithCString:userInput encoding:NSUTF8StringEncoding];
+    NSString *userInputAsString = [NSString stringWithCString:userInput encoding:NSUTF8StringEncoding];
     // trims the string
-    NSString *userInputTrimmed = [userInputConverted stringByTrimmingCharactersInSet:inputCharacterSet];
-    NSLog(@"%@", userInputTrimmed);
-    return userInputTrimmed;
+    NSString *userInputAsTrimmedString = [userInputAsString stringByTrimmingCharactersInSet:inputCharacterSet];
+    NSLog(@"%@", userInputAsTrimmedString);
+    return userInputAsTrimmedString;
     
 }
 

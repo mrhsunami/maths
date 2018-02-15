@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8A5F4D22034E93A0016661F /* QuestionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A5F4D12034E93A0016661F /* QuestionManager.m */; };
 		D8AA3B912033D28500C5A1E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AA3B902033D28500C5A1E2 /* main.m */; };
 		D8AA3B992033D50700C5A1E2 /* AdditionQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AA3B982033D50700C5A1E2 /* AdditionQuestion.m */; };
 		D8AA3B9C2033E2C000C5A1E2 /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AA3B9B2033E2C000C5A1E2 /* InputHandler.m */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D8A5F4D02034E93A0016661F /* QuestionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionManager.h; sourceTree = "<group>"; };
+		D8A5F4D12034E93A0016661F /* QuestionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionManager.m; sourceTree = "<group>"; };
 		D8AA3B8D2033D28500C5A1E2 /* Maths */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Maths; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AA3B902033D28500C5A1E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8AA3B972033D50700C5A1E2 /* AdditionQuestion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdditionQuestion.h; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				D8AA3B9B2033E2C000C5A1E2 /* InputHandler.m */,
 				D8AA3B972033D50700C5A1E2 /* AdditionQuestion.h */,
 				D8AA3B982033D50700C5A1E2 /* AdditionQuestion.m */,
+				D8A5F4D02034E93A0016661F /* QuestionManager.h */,
+				D8A5F4D12034E93A0016661F /* QuestionManager.m */,
 			);
 			path = Maths;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A5F4D22034E93A0016661F /* QuestionManager.m in Sources */,
 				D8AA3B9F2033F16700C5A1E2 /* ScoreKeeper.m in Sources */,
 				D8AA3B912033D28500C5A1E2 /* main.m in Sources */,
 				D8AA3B9C2033E2C000C5A1E2 /* InputHandler.m in Sources */,

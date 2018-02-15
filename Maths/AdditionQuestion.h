@@ -12,9 +12,22 @@
 
 // responsible for generating question.
 // responsible for handling answer to question
+// Part 2. also responsible for handling time tracking
 
 @property NSString *question;
-@property NSInteger answer;
+@property (nonatomic) NSInteger answer;
+
+// 2 properties for tracking time
+@property NSDate *startTime;
+@property NSDate *endTime;
+
+// where should we set value to the startTime?? As soon as the program is launched? Soon as question is asked? Those two are the same times. So when the first questions is asked. -> AdditionQuestions's init override
+
+
+// a method to find out diff between start time and end time.
+-(NSTimeInterval) answerTime;
+
+-(void) askUserTheQuestion;
 
 
 @end

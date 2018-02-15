@@ -11,6 +11,6 @@
 @interface InputHandler : NSObject
 
 // method
--(NSString *) queryUser;
+-(NSString *) askUserForAnswer;
 
 @end
